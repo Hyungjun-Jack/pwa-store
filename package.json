@@ -6,13 +6,15 @@
   "author": "Hyungjun Kim<lovehjun@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.4",
     "next": "^8.0.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1"
   },
   "scripts": {
-    "dev": "next",
+    "dev": "node server",
     "build": "next build",
-    "start": "next start"
+    "start": "NODE_ENV=production node server"
   }
 }

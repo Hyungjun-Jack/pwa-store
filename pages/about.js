@@ -1,13 +1,11 @@
 import Head from "next/head";
-import withLayout from "../lib/withLayout";
 
-const About= () => (
+export default () => (
   <div>
     <Head>
       <title>About | PWA Store</title>
     </Head>
     <h1>About page</h1>
+    <p>WHAT???</p>
   </div>
 );
-
-export default withLayout(About);
