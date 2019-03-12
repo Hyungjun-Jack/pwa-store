@@ -1,8 +1,9 @@
 import App, { Container } from "next/app";
-import Header from "../components/Header";
 import React from "react";
+import withApollo from "../lib/withApollo";
+import { ApolloProvider } from "react-apollo";
 
-export default class MyApp extends App {
+class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {};
     if (Component.getInitialProps) {
@@ -11,13 +12,16 @@ export default class MyApp extends App {
     return { pageProps };
   }
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, apollo } = this.props;
     // console.log(Component);
     return (
-      <Container>
-        <Header />
-        <Component {...pageProps} />
-      </Container>
+      <ApolloProvider client={apollo}>
+        <Container>
+          <Component {...pageProps} />
+        </Container>
+      </ApolloProvider>
     );
   }
 }
+
+export default withApollo(MyApp);
